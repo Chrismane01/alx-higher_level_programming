@@ -1,18 +1,15 @@
 #!/usr/bin/node
-// JS script to define a class, creates an instance method to print rectangle
-class Rectangle {
+
+module.exports = class Rectangle {
   constructor (w, h) {
-    if (w <= 0 || h <= 0 || w === undefined || h === undefined) {
-      return this;
-    } else {
+    if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
     }
   }
+
   print () {
-    for (let count = 0; count < this.height; count++) {
-      console.log('X'.repeat(this.width));
-    }
+    console.log(('X'.repeat(this.width) + '\n').repeat(this.height).split('')
+      .slice(0, -1).join(''));
   }
-}
-module.exports = Rectangle;
+};
